@@ -3,7 +3,8 @@ import { CreateEmailResponse, GetMessagesParams, GetMessagesResponse } from "@wo
 
 const router: IRouter = Router();
 
-const DROPMAIL_URL = "https://dropmail.me/api/graphql/af_AQVpxNazAQVsJnTBSfmcQFFiyMfBqhq6drh9XVFQ";
+const DROPMAIL_TOKEN_ID = process.env.DROPMAIL_TOKEN_ID ?? "";
+const DROPMAIL_URL = `https://dropmail.me/api/graphql/${DROPMAIL_TOKEN_ID}`;
 
 async function dropMailQuery(query: string, variables?: Record<string, unknown>) {
   const response = await fetch(DROPMAIL_URL, {
